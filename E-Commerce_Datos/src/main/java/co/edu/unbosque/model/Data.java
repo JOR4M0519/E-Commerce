@@ -1,38 +1,38 @@
 package co.edu.unbosque.model;
 
+import java.util.Date;
+
 import com.opencsv.bean.CsvBindByName;
 
-public class Datos {
+public class Data {
 
-	@CsvBindByName(column = "InvoiceNo")
-	private long invoiceNo;
 	
-	@CsvBindByName(column = "StockCode")
+	private String invoiceNo;
 	private String stockCode;
-	
-	@CsvBindByName(column = "Description")
 	private String description;
-	
-	@CsvBindByName(column = "Quantity")
 	private int quantity;
-	
-	@CsvBindByName(column = "InvoiceDate")
 	private String invoiceDate;
-	
-	@CsvBindByName(column = "UnitPrice")
 	private double unitPrice;
-	
-	@CsvBindByName(column = "CustomerID")
 	private long customerID;
-	
-	@CsvBindByName(column = "Country")
 	private String country;
 	
-	//get & setters
-	public long getInvoiceNo() {
+	public Data(String invoiceNo, String stockCode, String description, int quantity, String invoiceDate,
+			double unitPrice, long customerID, String country) {
+		super();
+		this.invoiceNo = invoiceNo;
+		this.stockCode = stockCode;
+		this.description = description;
+		this.quantity = quantity;
+		this.invoiceDate = invoiceDate;
+		this.unitPrice = unitPrice;
+		this.customerID = customerID;
+		this.country = country;
+	}
+	
+	public String getInvoiceNo() {
 		return invoiceNo;
 	}
-	public void setInvoiceNo(long invoiceNo) {
+	public void setInvoiceNo(String invoiceNo) {
 		this.invoiceNo = invoiceNo;
 	}
 	public String getStockCode() {
@@ -77,12 +77,9 @@ public class Datos {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	@Override
-	public String toString() {
-		return "Datos [invoiceNo=" + invoiceNo + ", stockCode=" + stockCode + ", description=" + description
-				+ ", quantity=" + quantity + ", invoiceDate=" + invoiceDate + ", unitPrice=" + unitPrice
-				+ ", customerID=" + customerID + ", country=" + country + "]";
-	}
+	
+	
+	
 	
 	
 	
