@@ -1,11 +1,13 @@
 package co.edu.unbosque.controller;
 
-import co.edu.unbosque.model.ReadCsvApp;
+import co.edu.unbosque.model.ReadCSV;
 
 public class Controller {
 
-	private ReadCsvApp rca;
+	private ReadCSV rca;
 	public Controller() {
-		
+
+		rca = new ReadCSV();
+		rca.readData();
 	}
 }
