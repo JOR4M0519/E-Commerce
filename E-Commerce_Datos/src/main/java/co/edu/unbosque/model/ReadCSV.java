@@ -14,8 +14,10 @@ import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -25,8 +27,9 @@ public class ReadCSV {
 	private Data classData;
 	private ArrayList<Data> data =new ArrayList<Data>();
 
-
-	public void readData() {
+	
+	public void uploadData() {
+		
 		FileReader archCSV = null;
 		CSVReader csvReader = null;
 
@@ -42,11 +45,11 @@ public class ReadCSV {
 				String invoiceNO;
 				String stockCode;
 				String description;
-				String invoiceDate;
 				String country;
 				double unitPrice;
 				int quantity;
 				long customerID;
+				Date invoiceDate;
 				
 
 				try {
@@ -64,16 +67,20 @@ public class ReadCSV {
 				}catch(NumberFormatException e) {
 					customerID=0;
 				}
+				
+				SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy HH:mm"); 
+				invoiceDate = formato.parse(datos.get(i)[0].split(",")[4]);
+				System.out.println(invoiceDate);
 
+				
 				invoiceNO =datos.get(i)[0].split(",")[0];
 				stockCode = datos.get(i)[0].split(",")[1];
 				description = datos.get(i)[0].split(",")[2];
-				invoiceDate = datos.get(i)[0].split(",")[4];
 				country = datos.get(i)[0].split(",")[7];
 
 				classData =new Data(invoiceNO, stockCode, description, quantity, invoiceDate, unitPrice, customerID, country);
-				data =new ArrayList<Data>();
 				data.add(classData);
+				
 
 			}
 		}
@@ -81,7 +88,7 @@ public class ReadCSV {
 			e.printStackTrace();
 		}
 		catch(Exception e) {
-			System.out.println(e);
+			e.printStackTrace();
 		}
 		finally {
 			try { 
@@ -89,7 +96,7 @@ public class ReadCSV {
 				csvReader.close();
 			}
 			catch(IOException e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 	}

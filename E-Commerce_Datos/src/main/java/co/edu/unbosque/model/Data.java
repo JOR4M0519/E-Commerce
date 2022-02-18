@@ -11,12 +11,12 @@ public class Data {
 	private String stockCode;
 	private String description;
 	private int quantity;
-	private String invoiceDate;
+	private Date invoiceDate;
 	private double unitPrice;
 	private long customerID;
 	private String country;
 	
-	public Data(String invoiceNo, String stockCode, String description, int quantity, String invoiceDate,
+	public Data(String invoiceNo, String stockCode, String description, int quantity, Date invoiceDate,
 			double unitPrice, long customerID, String country) {
 		super();
 		this.invoiceNo = invoiceNo;
@@ -53,12 +53,14 @@ public class Data {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public String getInvoiceDate() {
+	public Date getInvoiceDate() {
 		return invoiceDate;
 	}
-	public void setInvoiceDate(String invoiceDate) {
+
+	public void setInvoiceDate(Date invoiceDate) {
 		this.invoiceDate = invoiceDate;
 	}
+
 	public double getUnitPrice() {
 		return unitPrice;
 	}
@@ -76,6 +78,13 @@ public class Data {
 	}
 	public void setCountry(String country) {
 		this.country = country;
+	}
+
+	@Override
+	public String toString() {
+		return "Data [invoiceNo=" + invoiceNo + ", stockCode=" + stockCode + ", description=" + description
+				+ ", quantity=" + quantity + ", invoiceDate=" + invoiceDate + ", unitPrice=" + unitPrice
+				+ ", customerID=" + customerID + ", country=" + country + "]"+"\n";
 	}
 	
 	
