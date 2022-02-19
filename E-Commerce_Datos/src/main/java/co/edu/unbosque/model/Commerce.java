@@ -3,14 +3,14 @@ package co.edu.unbosque.model;
 import java.util.ArrayList;
 
 public class Commerce {
+
 	private ReadCSV readCSV;
-	
-	
+
 	public Commerce() {
 		readCSV = new ReadCSV();
 		readCSV.uploadData();	
 	}
-	
+
 	public double sumTotSales() {
 		double totSales =0.0 ;
 		for (int i = 0; i < readCSV.getData().size(); i++) {
@@ -18,7 +18,7 @@ public class Commerce {
 		}
 		return totSales;
 	}
-	
+
 	public ArrayList<Data> findByInvoiceNo(String invoiceNo) {
 		ArrayList<Data> dataInvoiceNo =new ArrayList<Data>();	
 		for (int i = 0; i < readCSV.getData().size(); i++) {
@@ -28,7 +28,7 @@ public class Commerce {
 		}
 		return dataInvoiceNo;
 	}
-	
+
 	public int countByStockCode(String stockCode) {
 		int quantity=0;
 		for (int i = 0; i < readCSV.getData().size(); i++) {
@@ -46,7 +46,5 @@ public class Commerce {
 	public void setReadCSV(ReadCSV readCSV) {
 		this.readCSV = readCSV;
 	}
-	
-	 
 
 }

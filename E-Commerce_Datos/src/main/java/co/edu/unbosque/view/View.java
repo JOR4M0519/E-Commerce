@@ -4,21 +4,6 @@ import javax.swing.JOptionPane;
 
 public class View {
 
-	private int select=-1;
-
-
-	public void menu() {
-		while(select!=-1) {
-			inputWindows("1. Show all total sales" + "\n"
-					+ "2. Find details by invoice number"+ "\n"
-					+ "3. Count all products sold by stock code"+ "\n"
-					+ "4. Average monthly sales by country"+ "\n"
-					+ "5. Find partially by description", "menu", 1);
-		}
-
-	}
-	
-	//Lau
 	public int menuLau() {
 
 		boolean salir = false;
@@ -29,15 +14,15 @@ public class View {
 					+ "2. Find details by invoice number"+ "\n"
 					+ "3. Count all products sold by stock code"+ "\n"
 					+ "4. Average monthly sales by country"+ "\n"
-					+ "5. Find partially by description", "menu", 1));
-			if(number<=5 && number>=1) {
+					+ "5. Find partially by description"+ "\n"
+					+ "0. Exit", "menu", 1));
+			if(number<=5 && number>=0) {
 				salir = true;
 			}
 		}
 
 		return number;
 	}
-	//Lau
 
 	public String inputWindows(String info, String title, int messageType) {
 		return JOptionPane.showInputDialog(null, info, title, messageType);

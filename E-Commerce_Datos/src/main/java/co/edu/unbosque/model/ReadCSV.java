@@ -23,16 +23,13 @@ import java.util.List;
 
 public class ReadCSV {
 
-
 	private Data classData;
 	private ArrayList<Data> data =new ArrayList<Data>();
-
 	
 	public void uploadData() {
 		
 		FileReader archCSV = null;
 		CSVReader csvReader = null;
-
 
 		try{
 			archCSV = new FileReader("./Data/data.csv");
@@ -49,8 +46,7 @@ public class ReadCSV {
 				double unitPrice;
 				int quantity;
 				long customerID;
-				Date invoiceDate;
-				
+				Date invoiceDate;		
 
 				try {
 					unitPrice = Double.parseDouble(datos.get(i)[0].split(",")[5]);
@@ -70,8 +66,10 @@ public class ReadCSV {
 				
 				SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy HH:mm"); 
 				invoiceDate = formato.parse(datos.get(i)[0].split(",")[4]);
+				
+				//Genera texto por consola del inicio
 				System.out.println(invoiceDate);
-
+				//Genera texto por consola del inicio
 				
 				invoiceNO =datos.get(i)[0].split(",")[0];
 				stockCode = datos.get(i)[0].split(",")[1];
@@ -79,8 +77,7 @@ public class ReadCSV {
 				country = datos.get(i)[0].split(",")[7];
 
 				classData =new Data(invoiceNO, stockCode, description, quantity, invoiceDate, unitPrice, customerID, country);
-				data.add(classData);
-				
+				data.add(classData);	
 
 			}
 		}
@@ -101,17 +98,14 @@ public class ReadCSV {
 		}
 	}
 
-
 	public ArrayList<Data> getData() {
 		return data;
 	}
-
 
 	public void setData(ArrayList<Data> data) {
 		this.data = data;
 	}
 	
-
 }
 
 

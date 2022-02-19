@@ -6,7 +6,6 @@ import com.opencsv.bean.CsvBindByName;
 
 public class Data {
 
-	
 	private String invoiceNo;
 	private String stockCode;
 	private String description;
@@ -18,6 +17,7 @@ public class Data {
 	
 	public Data(String invoiceNo, String stockCode, String description, int quantity, Date invoiceDate,
 			double unitPrice, long customerID, String country) {
+		
 		super();
 		this.invoiceNo = invoiceNo;
 		this.stockCode = stockCode;
@@ -27,6 +27,7 @@ public class Data {
 		this.unitPrice = unitPrice;
 		this.customerID = customerID;
 		this.country = country;
+		
 	}
 	
 	public String getInvoiceNo() {
@@ -87,11 +88,4 @@ public class Data {
 				+ ", customerID=" + customerID + ", country=" + country + "]"+"\n";
 	}
 	
-	
-	
-	
-	
-	
-	
-
 }
