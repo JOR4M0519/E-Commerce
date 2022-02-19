@@ -22,22 +22,18 @@ public class Controller {
 			if(menu==1) {
 				view.exportWindows("Suma venta totales: "+commerce.sumTotSales(), "Suma total ventas", 1);
 			}else if(menu==2) {
-				//Arreglar
-				try {
-					view.exportWindows("Resultado de la busqueda:\n"+commerce.findByInvoiceNo(view.inputWindows("Ingrese el numero", null, 1)).toString(), "Texto", 1);	
-				}catch(Exception e) {
-					view.exportWindows("El numero ingresado es incorrecto o no se encuentra dentro del sistema.", "Suma total ventas", 1);
-				}
-				
+
+				view.exportWindows("Resultado de la busqueda:\n"+commerce.findByInvoiceNo(view.inputWindows("Ingrese el numero", null, 1)).toString(), "Texto", 1);	
+
 			}else if(menu==3) {
-				//Arreglar
-				try {
-					String code = view.inputWindows("Ingrese el codigo", null, 1);
-					view.exportWindows(""+commerce.countByStockCode(code.toLowerCase())+commerce.countByStockCode(code.toUpperCase()), "Suma total ventas", 1);
-				}catch(Exception e) {
+
+				String code = view.inputWindows("Ingrese el codigo", null, 1);
+				if(commerce.countByStockCode(code.toLowerCase())+commerce.countByStockCode(code.toUpperCase())!=00) {
+					view.exportWindows(""+commerce.countByStockCode(code.toLowerCase())+commerce.countByStockCode(code.toUpperCase()), "Suma total ventas", 1);	
+				}else {
 					view.exportWindows("El codigo ingresado es incorrecto o no se encuentra dentro del sistema.", "Suma total ventas", 1);
 				}
-				
+
 			}else if(menu==4) {
 
 			}else if(menu==5) {
