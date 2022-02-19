@@ -38,6 +38,13 @@ public class Commerce {
 		}
 		return quantity;
 	}
+	
+	public double promVentas() {
+		
+		double a = 0.0;
+		return a;
+		
+	}
 
 	public ReadCSV getReadCSV() {
 		return readCSV;
