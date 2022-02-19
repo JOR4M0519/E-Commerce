@@ -17,8 +17,27 @@ public class View {
 		}
 
 	}
+	
+	//Lau
+	public int menuLau() {
 
+		boolean salir = false;
+		int number=0;
 
+		while(!salir) {
+			number = Integer.valueOf(JOptionPane.showInputDialog(null, "1. Show all total sales" + "\n"
+					+ "2. Find details by invoice number"+ "\n"
+					+ "3. Count all products sold by stock code"+ "\n"
+					+ "4. Average monthly sales by country"+ "\n"
+					+ "5. Find partially by description", "menu", 1));
+			if(number<=5 && number>=1) {
+				salir = true;
+			}
+		}
+
+		return number;
+	}
+	//Lau
 
 	public String inputWindows(String info, String title, int messageType) {
 		return JOptionPane.showInputDialog(null, info, title, messageType);
