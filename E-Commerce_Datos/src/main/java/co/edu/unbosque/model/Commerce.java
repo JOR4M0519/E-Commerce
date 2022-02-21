@@ -39,6 +39,51 @@ public class Commerce {
 		return quantity;
 	}
 
+	public String findPartiallyByDescription(String search, boolean order, int initMonth, int endMonth) {
+		String information="";
+		ArrayList<Data> ordenar = new ArrayList<Data>();
+		int number = 0;
+
+		for(int x=0;x<readCSV.getData().size();x++) {
+			String ver= readCSV.getData().get(x).getDescription();
+			if(ver.contains(search)) {
+
+				if(order) {
+
+//					if(ordenar.size()!=0) {
+//						
+//						if(readCSV.getData().get(x).getQuantity()>=ordenar.get(ordenar.size()-1).getQuantity()) {
+//                             
+//						}
+//						
+//					}else {
+//						ordenar.add(readCSV.getData().get(x));
+//					}
+
+
+
+
+
+					//					ArrayList<Data> orden = new ArrayList<Data>();
+
+					//					if(number<=readCSV.getData().get(x).getQuantity()) {
+					//						number = readCSV.getData().get(x).getQuantity();
+					//						information= readCSV.getData().get(x).getDescription()+": "+readCSV.getData().get(x).getQuantity()+"\n"+information;
+					//					}else {
+					//						information= information+"\n"+readCSV.getData().get(x).getDescription()+": "+readCSV.getData().get(x).getQuantity();
+					//					}
+
+				}else {
+					information= readCSV.getData().get(x).getDescription()+": "+readCSV.getData().get(x).getQuantity()+"\n"+information;	
+				}
+			}
+
+		}
+		
+		return information;
+	}
+
+
 	public ReadCSV getReadCSV() {
 		return readCSV;
 	}
