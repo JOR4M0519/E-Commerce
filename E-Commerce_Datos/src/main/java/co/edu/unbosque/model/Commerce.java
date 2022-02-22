@@ -1,6 +1,7 @@
 package co.edu.unbosque.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Commerce {
 
@@ -38,49 +39,69 @@ public class Commerce {
 		}
 		return quantity;
 	}
+	
+	
+	public ArrayList<Data> orderDescription(){
+		ArrayList<Data> dataDescription =new ArrayList<Data>();
+		
+		
+		
+		
+		return dataDescription;
+		
+		
+	}
 
-	public String findPartiallyByDescription(String search, boolean order, int initMonth, int endMonth) {
-		String information="";
-		ArrayList<Data> ordenar = new ArrayList<Data>();
-		int number = 0;
+
+	public List<Data> findPartiallyByDescription(String search, boolean order, int initMonth, int endMonth) {
+		List <Data> dataDescription =new ArrayList<Data>();
+		Data dataa =null;
 
 		for(int x=0;x<readCSV.getData().size();x++) {
-			String ver= readCSV.getData().get(x).getDescription();
-			if(ver.contains(search)) {
+			if(readCSV.getData().get(x).getDescription().contains(search)) {
+				dataa=readCSV.getData().get(x);
+				dataDescription.add(dataa);
+				
+			 
+			
 
-				if(order) {
-
-//					if(ordenar.size()!=0) {
-//						
-//						if(readCSV.getData().get(x).getQuantity()>=ordenar.get(ordenar.size()-1).getQuantity()) {
-//                             
+//				if(order) {
+//
+//					if(readCSV.getData().get(x).getQuantity()>=readCSV.getData().get(x+1).getQuantity()) {
+//						String mayor = readCSV.getData().get(x).getDescription()+": "+readCSV.getData().get(x).getQuantity()+"\n";
+//						String menor = readCSV.getData().get(x+1).getDescription()+": "+readCSV.getData().get(x+1).getQuantity()+"\n";
+//					
+//
+//						if(readCSV.getData().get(x).getQuantity()<=readCSV.getData().get(x-1).getQuantity()) {
+//							
+//							String medio= readCSV.getData().get(x).getDescription()+": "+readCSV.getData().get(x).getQuantity()+"\n";
+//							
+//							String menor= readCSV.getData().get(x).getDescription()+": "+readCSV.getData().get(x).getQuantity()+"\n";
+//							readCSV.getData().add(x, readCSV.getData().get(x-1));
+//							readCSV.getData().add(x-1, menor);
 //						}
-//						
+//
 //					}else {
-//						ordenar.add(readCSV.getData().get(x));
+//
+//						if(readCSV.getData().get(x).getQuantity()<=readCSV.getData().get(x-1).getQuantity()) {
+//							Data menor= readCSV.getData().get(x);
+//							readCSV.getData().add(x, readCSV.getData().get(x-1));
+//							readCSV.getData().add(x-1, menor);
+//						}	
 //					}
-
-
-
-
-
-					//					ArrayList<Data> orden = new ArrayList<Data>();
-
-					//					if(number<=readCSV.getData().get(x).getQuantity()) {
-					//						number = readCSV.getData().get(x).getQuantity();
-					//						information= readCSV.getData().get(x).getDescription()+": "+readCSV.getData().get(x).getQuantity()+"\n"+information;
-					//					}else {
-					//						information= information+"\n"+readCSV.getData().get(x).getDescription()+": "+readCSV.getData().get(x).getQuantity();
-					//					}
-
-				}else {
-					information= readCSV.getData().get(x).getDescription()+": "+readCSV.getData().get(x).getQuantity()+"\n"+information;	
-				}
+//
+//				}else {
+//					information= readCSV.getData().get(x).getDescription()+": "+readCSV.getData().get(x).getQuantity()+"\n"+information;	
+//				}
+			
+			
 			}
+			
+			
 
 		}
-		
-		return information;
+
+		return dataDescription;
 	}
 
 
