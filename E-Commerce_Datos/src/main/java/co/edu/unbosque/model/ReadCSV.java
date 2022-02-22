@@ -68,7 +68,7 @@ public class ReadCSV {
 				invoiceDate = formato.parse(datos.get(i)[0].split(",")[4]);
 				
 				//Genera texto por consola del inicio
-				System.out.println(invoiceDate);
+//				System.out.println(invoiceDate);
 				//Genera texto por consola del inicio
 				
 				invoiceNO =datos.get(i)[0].split(",")[0];

@@ -1,6 +1,7 @@
 package co.edu.unbosque.controller;
 
 import co.edu.unbosque.model.Commerce;
+import co.edu.unbosque.model.Data;
 import co.edu.unbosque.view.View;
 
 public class Controller {
@@ -35,9 +36,11 @@ public class Controller {
 				}
 
 			}else if(menu==4) {
-
+				
+				System.out.println(commerce.findPartiallyByDescription("MUG", salir, menu, menu).toString()+"\n");
 			}else if(menu==5) {
-
+				System.out.println(commerce.findPartiallyByDescription("MUG", view.validationWindows("Ordenar por producto mas ventido", "Que opina"), 1, 2));
+//				view.exportWindows(commerce.findPartiallyByDescription("MUG", salir, menu, menu), "A ver si funciona", 1);
 			}else if(menu==0) {
 				salir = true;
 			}
