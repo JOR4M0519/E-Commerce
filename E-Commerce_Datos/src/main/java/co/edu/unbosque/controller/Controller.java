@@ -18,7 +18,7 @@ public class Controller {
 
 		while(!salir) {
 
-			int menu = view.menuLau();
+			int menu = view.menu();
 
 			if(menu==1) {
 				view.exportWindows("Suma venta totales: "+commerce.sumTotSales(), "Suma total ventas", 1);
@@ -37,10 +37,10 @@ public class Controller {
 
 			}else if(menu==4) {
 				
-				System.out.println(commerce.findPartiallyByDescription("MUG", salir, menu, menu).toString()+"\n");
+				
 			}else if(menu==5) {
-				System.out.println(commerce.findPartiallyByDescription("MUG", view.validationWindows("Ordenar por producto mas ventido", "Que opina"), 1, 2));
-//				view.exportWindows(commerce.findPartiallyByDescription("MUG", salir, menu, menu), "A ver si funciona", 1);
+			
+				
 			}else if(menu==0) {
 				salir = true;
 			}

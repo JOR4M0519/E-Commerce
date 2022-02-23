@@ -3,8 +3,14 @@ package co.edu.unbosque.view;
 import javax.swing.JOptionPane;
 
 public class View {
+	
+	/**
+	 * Clase que muestra el menu de seleccion principal.
+	 * 
+	 * @return
+	 */
 
-	public int menuLau() {
+	public int menu() {
 
 		boolean salir = false;
 		int number=0;
