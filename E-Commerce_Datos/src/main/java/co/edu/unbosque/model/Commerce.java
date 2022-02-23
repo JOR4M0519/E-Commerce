@@ -48,7 +48,7 @@ public class Commerce {
 			switch(readCSV.getData().get(i).getInvoiceDate().getMonth()) {
 			case 1:
 				//double sum = 0.0;
-				sum = Math.round((readCSV.getData().get(i).getQuantity()*readCSV.getData().get(i).getUnitPrice() + sum)*100.0)/100.0;
+				sum = Math.round((readCSV.getData().get(i).getQuantity()*readCSV.getData().get(i).getUnitPrice() + sum)*100.00)/100.00;
 				n1 = sum/i;
 				break;
 			}

@@ -17,7 +17,7 @@ public class Controller {
 		System.out.println(commerce.findByInvoiceNo("536365").toString());
 		String code = "85123A";
 		System.out.println(commerce.countByStockCode(code.toLowerCase())+commerce.countByStockCode(code.toUpperCase()));
-		System.out.println(commerce.avgMonthlySales());
+		System.out.println(commerce.avgMonthlySales()+"a");
 		
 	}
 }
