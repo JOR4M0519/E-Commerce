@@ -40,16 +40,11 @@ public class Controller {
 				System.out.println(commerce.findPartiallyByDescription("MUG", salir, menu, menu).toString()+"\n");
 			}else if(menu==5) {
 				System.out.println(commerce.findPartiallyByDescription("MUG", view.validationWindows("Ordenar por producto mas ventido", "Que opina"), 1, 2));
-//				view.exportWindows(commerce.findPartiallyByDescription("MUG", salir, menu, menu), "A ver si funciona", 1);
 			}else if(menu==0) {
 				salir = true;
 			}
 
 		}
-
-		//		System.out.println(commerce.findByInvoiceNo("536365").toString());
-		//		String code = "85123A";
-		//		System.out.println(commerce.countByStockCode(code.toLowerCase())+commerce.countByStockCode(code.toUpperCase()));
 
 	}
 }

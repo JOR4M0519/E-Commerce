@@ -1,23 +1,13 @@
 package co.edu.unbosque.model;
-
 import com.opencsv.CSVParser;
 import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
-import com.opencsv.bean.*;
-
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.Reader;
-import java.net.URI;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -67,10 +57,6 @@ public class ReadCSV {
 				SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy HH:mm"); 
 				invoiceDate = formato.parse(datos.get(i)[0].split(",")[4]);
 				
-				//Genera texto por consola del inicio
-//				System.out.println(invoiceDate);
-				//Genera texto por consola del inicio
-				
 				invoiceNO =datos.get(i)[0].split(",")[0];
 				stockCode = datos.get(i)[0].split(",")[1];
 				description = datos.get(i)[0].split(",")[2];
@@ -105,6 +91,7 @@ public class ReadCSV {
 	public void setData(ArrayList<Data> data) {
 		this.data = data;
 	}
+	
 	
 }
 

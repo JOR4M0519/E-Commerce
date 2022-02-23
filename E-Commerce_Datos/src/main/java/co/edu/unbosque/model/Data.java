@@ -4,7 +4,7 @@ import java.util.Date;
 
 import com.opencsv.bean.CsvBindByName;
 
-public class Data {
+public class Data implements Comparable<Data>{
 
 	private String invoiceNo;
 	private String stockCode;
@@ -14,10 +14,10 @@ public class Data {
 	private double unitPrice;
 	private long customerID;
 	private String country;
-	
+
 	public Data(String invoiceNo, String stockCode, String description, int quantity, Date invoiceDate,
 			double unitPrice, long customerID, String country) {
-		
+
 		super();
 		this.invoiceNo = invoiceNo;
 		this.stockCode = stockCode;
@@ -27,9 +27,9 @@ public class Data {
 		this.unitPrice = unitPrice;
 		this.customerID = customerID;
 		this.country = country;
-		
+
 	}
-	
+
 	public String getInvoiceNo() {
 		return invoiceNo;
 	}
@@ -87,5 +87,9 @@ public class Data {
 				+ ", quantity=" + quantity + ", invoiceDate=" + invoiceDate + ", unitPrice=" + unitPrice
 				+ ", customerID=" + customerID + ", country=" + country + "]"+"\n";
 	}
-	
+
+	public int compareTo(Data o) { 
+		return this.quantity-o.quantity;
+	}
+
 }
