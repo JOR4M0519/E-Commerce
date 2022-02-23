@@ -59,23 +59,14 @@ public class Commerce {
 				public int compare(Data o1, Data o2) {
 
 					return new Integer(o2.getQuantity()).compareTo(new Integer(o1.getQuantity()));
-					//			        return o2.getInvoiceDate().compareTo(o1.getInvoiceDate());
 				}
 			});	
-			
-			
-			for(int x=0;x<readCSV.getData().size();x++) {
-				for (int i = initMonth-1; i <=(endMonth-initMonth); i++) {
-					if(readCSV.getData().get(x).getDescription().contains(search)&&readCSV.getData().get(x).getInvoiceDate().getMonth()==i) {
-						information= readCSV.getData().get(x).getDescription()+": "+readCSV.getData().get(x).getQuantity()+" "+readCSV.getData().get(x).getInvoiceDate()+"\n"+information;	
-					}
-				}
-			}
+		}
 
-		}else {
-			for(int x=0;x<readCSV.getData().size();x++) {
-				if(readCSV.getData().get(x).getDescription().contains(search)) {
-					information= readCSV.getData().get(x).getDescription()+": "+readCSV.getData().get(x).getQuantity()+" "+readCSV.getData().get(x).getInvoiceDate()+"\n"+information;
+		for(int x=0;x<readCSV.getData().size();x++) {
+			for (int i = initMonth-1; i <=(endMonth-initMonth); i++) {
+				if(readCSV.getData().get(x).getDescription().contains(search)&&readCSV.getData().get(x).getInvoiceDate().getMonth()==i) {
+					information= readCSV.getData().get(x).getDescription()+": "+readCSV.getData().get(x).getQuantity()+" "+readCSV.getData().get(x).getInvoiceDate()+"\n"+information;	
 				}
 			}
 		}
