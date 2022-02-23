@@ -1,7 +1,6 @@
 package co.edu.unbosque.controller;
 
 import co.edu.unbosque.model.Commerce;
-import co.edu.unbosque.model.Data;
 import co.edu.unbosque.view.View;
 
 public class Controller {
@@ -39,12 +38,11 @@ public class Controller {
 				
 				
 			}else if(menu==5) {
-			
-				
+				System.out.println(commerce.findPartiallyByDescription("MUG", view.validationWindows("Ordenar por producto mas ventido", "Que opina"), 1, 3));
 			}else if(menu==0) {
 				salir = true;
 			}
-
+			
 		}
 
 		//		System.out.println(commerce.findByInvoiceNo("536365").toString());

@@ -47,13 +47,7 @@ public class Commerce {
 	
 	public ArrayList<Data> orderDescription(){
 		ArrayList<Data> dataDescription =new ArrayList<Data>();
-		
-		
-		
-		
 		return dataDescription;
-		
-		
 	}
 	
 	public <T> String findPartiallyByDescription(String search, boolean order, int initMonth, int endMonth) {

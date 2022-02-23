@@ -2,8 +2,6 @@ package co.edu.unbosque.model;
 
 import java.util.Date;
 
-import com.opencsv.bean.CsvBindByName;
-
 public class Data {
 
 	private String invoiceNo;
