@@ -1,13 +1,16 @@
 package co.edu.unbosque.model;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 
 public class Commerce {
 
 	private ReadCSV readCSV;
+	private Data data;
 
 	public Commerce() {
+		data = new Data(null, null, null, 0, null, 0, 0, null);
 		readCSV = new ReadCSV();
 		readCSV.uploadData();	
 	}
@@ -45,28 +48,37 @@ public class Commerce {
 		ArrayList<Data> dataDescription =new ArrayList<Data>();
 		return dataDescription;
 
-
 	}
 
-
-	public String findPartiallyByDescription(String search, boolean order, int initMonth, int endMonth) {
+	public <T> String findPartiallyByDescription(String search, boolean order, int initMonth, int endMonth) {
 		String information = "";
 
-
 		if(order) {
-			Collections.sort(readCSV.getData());
-			//			readCSV.getData().sort(null);		
-		}
+			Collections.sort(readCSV.getData(), new Comparator<Data>() {
 
+				public int compare(Data o1, Data o2) {
 
-		for(int x=0;x<readCSV.getData().size();x++) {
-			if(readCSV.getData().get(x).getDescription().contains(search)) {
-				information= readCSV.getData().get(x).getDescription()+": "+readCSV.getData().get(x).getQuantity()+"\n"+information;	
+					return new Integer(o2.getQuantity()).compareTo(new Integer(o1.getQuantity()));
+					//			        return o2.getInvoiceDate().compareTo(o1.getInvoiceDate());
+				}
+			});	
+			
+			
+			for(int x=0;x<readCSV.getData().size();x++) {
+				for (int i = initMonth-1; i <=(endMonth-initMonth); i++) {
+					if(readCSV.getData().get(x).getDescription().contains(search)&&readCSV.getData().get(x).getInvoiceDate().getMonth()==i) {
+						information= readCSV.getData().get(x).getDescription()+": "+readCSV.getData().get(x).getQuantity()+" "+readCSV.getData().get(x).getInvoiceDate()+"\n"+information;	
+					}
+				}
 			}
-	
+
+		}else {
+			for(int x=0;x<readCSV.getData().size();x++) {
+				if(readCSV.getData().get(x).getDescription().contains(search)) {
+					information= readCSV.getData().get(x).getDescription()+": "+readCSV.getData().get(x).getQuantity()+" "+readCSV.getData().get(x).getInvoiceDate()+"\n"+information;
+				}
+			}
 		}
-		
-		
 
 		return information;
 	}

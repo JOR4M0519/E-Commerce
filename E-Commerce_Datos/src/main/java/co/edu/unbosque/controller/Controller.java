@@ -37,9 +37,9 @@ public class Controller {
 
 			}else if(menu==4) {
 				
-				System.out.println(commerce.findPartiallyByDescription("MUG", salir, menu, menu).toString()+"\n");
+				System.out.println(commerce.findPartiallyByDescription("MUG", salir, 1, 5).toString()+"\n");
 			}else if(menu==5) {
-				System.out.println(commerce.findPartiallyByDescription("MUG", view.validationWindows("Ordenar por producto mas ventido", "Que opina"), 1, 2));
+				System.out.println(commerce.findPartiallyByDescription("MUG", view.validationWindows("Ordenar por producto mas ventido", "Que opina"), 1, 5));
 			}else if(menu==0) {
 				salir = true;
 			}
