@@ -1,6 +1,7 @@
 package co.edu.unbosque.model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Commerce {
 	private ReadCSV readCSV;
@@ -39,11 +40,22 @@ public class Commerce {
 		return quantity;
 	}
 	
-	public double promVentas() {
+	public double avgMonthlySales() {
+		double n1 = 0.0;
+		double sum = 0.0;
 		
-		double a = 0.0;
-		return a;
+		for (int i = 0; i < readCSV.getData().size(); i++) {
+			switch(readCSV.getData().get(i).getInvoiceDate().getMonth()) {
+			case 1:
+				//double sum = 0.0;
+				sum = Math.round((readCSV.getData().get(i).getQuantity()*readCSV.getData().get(i).getUnitPrice() + sum)*100.0)/100.0;
+				n1 = sum/i;
+				break;
+			}
+			
+		}
 		
+		return n1;
 	}
 
 	public ReadCSV getReadCSV() {
