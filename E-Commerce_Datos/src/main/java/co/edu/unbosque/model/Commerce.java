@@ -1,6 +1,9 @@
 package co.edu.unbosque.model;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Commerce {
@@ -52,9 +55,10 @@ public class Commerce {
 		
 	}
 
-
+	
+	
 	public List<Data> findPartiallyByDescription(String search, boolean order, int initMonth, int endMonth) {
-		List <Data> dataDescription =new ArrayList<Data>();
+		List<Data> dataDescription =new ArrayList<Data>();
 		Data dataa =null;
 
 		for(int x=0;x<readCSV.getData().size();x++) {
@@ -62,8 +66,7 @@ public class Commerce {
 				dataa=readCSV.getData().get(x);
 				dataDescription.add(dataa);
 				
-			 
-			
+				 Collections.sort(dataDescription);
 
 //				if(order) {
 //

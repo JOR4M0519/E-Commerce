@@ -80,6 +80,13 @@ public class Data {
 	public void setCountry(String country) {
 		this.country = country;
 	}
+	
+	// @Override
+     public int compareTo(Data o) {
+        String a=new String(String.valueOf(this.getQuantity())+this.getDescription());
+        String b=new String(String.valueOf(o.getQuantity())+o.getDescription());
+        return a.compareTo(b);
+    }
 
 	@Override
 	public String toString() {
