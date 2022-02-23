@@ -18,7 +18,7 @@ public class Controller {
 
 		while(!salir) {
 
-			int menu = view.menuLau();
+			int menu = view.menu();
 
 			if(menu==1) {
 				view.exportWindows("Suma venta totales: "+commerce.sumTotSales(), "Suma total ventas", 1);
