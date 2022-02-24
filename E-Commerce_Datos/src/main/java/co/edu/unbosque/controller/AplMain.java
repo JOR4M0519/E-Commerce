@@ -8,7 +8,6 @@ public class AplMain {
 	 * <post> Inicializa el objeto controller.
 	 * @param args Comando dado por un argumento.
 	 */
-
 	public static void main(String[] args) {
 		Controller c = new Controller();
 	}

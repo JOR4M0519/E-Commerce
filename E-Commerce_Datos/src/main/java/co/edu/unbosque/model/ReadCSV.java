@@ -16,13 +16,21 @@ public class ReadCSV {
 	private Data classData;
 	private ArrayList<Data> data =new ArrayList<Data>();
 	
+	/**
+	 * Carga el archivo CSV, primero agrega cada fila a una lista de tipo String, se separa cada dato por coma y se agrega a su respectiva variable, para poder crear el arraylist de tipo Data. 
+	 * <b>pre</b>Libreria OpenCSV cargada.
+	 * <b>pre</b>Poner la ruta del archivo.
+	 * <b>pre</b>Clase Data creada.
+	 * <b>post</b>Carga el CSV en un arraylist de tipo DATA.<br>
+	 */
+	
 	public void uploadData() {
 		
 		FileReader archCSV = null;
 		CSVReader csvReader = null;
 
 		try{
-			archCSV = new FileReader("./Data/data.csv");
+			archCSV = new FileReader("./src/main/resources/data.csv");
 			CSVParser conPuntoYComa = new CSVParserBuilder().withSeparator(';').build();
 			csvReader = new CSVReaderBuilder(archCSV).withCSVParser(conPuntoYComa).build();
 			List<String[]> datos = csvReader.readAll();

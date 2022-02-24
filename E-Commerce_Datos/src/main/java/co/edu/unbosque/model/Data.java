@@ -13,6 +13,22 @@ public class Data {
 	private long customerID;
 	private String country;
 	
+	/**
+	 * Método constructor en donde inicializamos las variables.
+	 * <b>pre</b>invoiceNo, stockCode, description, quantity, invoiceDate, 
+	 * unitPrice, customerID y country son variables que son inicializadas en el método constructor.
+	 * <b>post</b>invoiceNo, stockCode, description, quantity, invoiceDate, 
+	 * unitPrice, customerID y country son los valores que se le asignan a sus respectivas variables.<br>
+	 * @param invoiceNo String correspondiente al número de la factura.
+	 * @param stockCode String correspondiente al código del producto.
+	 * @param description String correspondiente al nombre del producto.
+	 * @param quantity int correspondiente a la cantidad de productos.
+	 * @param invoiceDate Date correspondiente a la fecha de la factura.
+	 * @param unitPrice double correspondiente a al precio por unidad del producto.
+	 * @param customerID long correspondiente al número de identificación del cliente.
+	 * @param country String correspondiente al país en la que se realiza la factura.
+	 */
+	
 	public Data(String invoiceNo, String stockCode, String description, int quantity, Date invoiceDate,
 			double unitPrice, long customerID, String country) {
 		
@@ -78,19 +94,12 @@ public class Data {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	
-	// @Override
-     public int compareTo(Data o) {
-        String a=new String(String.valueOf(this.getQuantity())+this.getDescription());
-        String b=new String(String.valueOf(o.getQuantity())+o.getDescription());
-        return a.compareTo(b);
-    }
 
 	@Override
 	public String toString() {
-		return "Data [invoiceNo=" + invoiceNo + ", stockCode=" + stockCode + ", description=" + description
-				+ ", quantity=" + quantity + ", invoiceDate=" + invoiceDate + ", unitPrice=" + unitPrice
-				+ ", customerID=" + customerID + ", country=" + country + "]"+"\n";
+		return "Invoice Number = " + invoiceNo + ", Stock Code = " + stockCode + ", Description = " + description
+				+ ", Quantity = " + quantity + ", Invoice Date = " + invoiceDate + ", Unit Price = " + unitPrice
+				+ ", Customer ID = " + customerID + ", Country = " + country+"\n";
 	}
 	
 }
