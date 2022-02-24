@@ -2,11 +2,8 @@ package co.edu.unbosque.model;
 
 import java.util.Date;
 
-import com.opencsv.bean.CsvBindByName;
-
 public class Data {
 
-	
 	private String invoiceNo;
 	private String stockCode;
 	private String description;
@@ -16,8 +13,25 @@ public class Data {
 	private long customerID;
 	private String country;
 	
+	/**
+	 * Método constructor en donde inicializamos las variables.
+	 * <b>pre</b>invoiceNo, stockCode, description, quantity, invoiceDate, 
+	 * unitPrice, customerID y country son variables que son inicializadas en el método constructor.
+	 * <b>post</b>invoiceNo, stockCode, description, quantity, invoiceDate, 
+	 * unitPrice, customerID y country son los valores que se le asignan a sus respectivas variables.<br>
+	 * @param invoiceNo String correspondiente al número de la factura.
+	 * @param stockCode String correspondiente al código del producto.
+	 * @param description String correspondiente al nombre del producto.
+	 * @param quantity int correspondiente a la cantidad de productos.
+	 * @param invoiceDate Date correspondiente a la fecha de la factura.
+	 * @param unitPrice double correspondiente a al precio por unidad del producto.
+	 * @param customerID long correspondiente al número de identificación del cliente.
+	 * @param country String correspondiente al país en la que se realiza la factura.
+	 */
+	
 	public Data(String invoiceNo, String stockCode, String description, int quantity, Date invoiceDate,
 			double unitPrice, long customerID, String country) {
+		
 		super();
 		this.invoiceNo = invoiceNo;
 		this.stockCode = stockCode;
@@ -27,6 +41,7 @@ public class Data {
 		this.unitPrice = unitPrice;
 		this.customerID = customerID;
 		this.country = country;
+		
 	}
 	
 	public String getInvoiceNo() {
@@ -82,16 +97,9 @@ public class Data {
 
 	@Override
 	public String toString() {
-		return "Data [invoiceNo=" + invoiceNo + ", stockCode=" + stockCode + ", description=" + description
-				+ ", quantity=" + quantity + ", invoiceDate=" + invoiceDate + ", unitPrice=" + unitPrice
-				+ ", customerID=" + customerID + ", country=" + country + "]"+"\n";
+		return "Invoice Number = " + invoiceNo + ", Stock Code = " + stockCode + ", Description = " + description
+				+ ", Quantity = " + quantity + ", Invoice Date = " + invoiceDate + ", Unit Price = " + unitPrice
+				+ ", Customer ID = " + customerID + ", Country = " + country+"\n";
 	}
 	
-	
-	
-	
-	
-	
-	
-
 }

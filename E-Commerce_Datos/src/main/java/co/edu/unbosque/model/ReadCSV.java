@@ -4,38 +4,33 @@ import com.opencsv.CSVParser;
 import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
-import com.opencsv.bean.*;
-
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.Reader;
-import java.net.URI;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 public class ReadCSV {
 
-
 	private Data classData;
 	private ArrayList<Data> data =new ArrayList<Data>();
-
+	
+	/**
+	 * Carga el archivo CSV, primero agrega cada fila a una lista de tipo String, se separa cada dato por coma y se agrega a su respectiva variable, para poder crear el arraylist de tipo Data. 
+	 * <b>pre</b>Libreria OpenCSV cargada.
+	 * <b>pre</b>Poner la ruta del archivo.
+	 * <b>pre</b>Clase Data creada.
+	 * <b>post</b>Carga el CSV en un arraylist de tipo DATA.<br>
+	 */
 	
 	public void uploadData() {
 		
 		FileReader archCSV = null;
 		CSVReader csvReader = null;
 
-
 		try{
-			archCSV = new FileReader("./Data/data.csv");
+			archCSV = new FileReader("./src/main/resources/data.csv");
 			CSVParser conPuntoYComa = new CSVParserBuilder().withSeparator(';').build();
 			csvReader = new CSVReaderBuilder(archCSV).withCSVParser(conPuntoYComa).build();
 			List<String[]> datos = csvReader.readAll();
@@ -49,8 +44,7 @@ public class ReadCSV {
 				double unitPrice;
 				int quantity;
 				long customerID;
-				Date invoiceDate;
-				
+				Date invoiceDate;		
 
 				try {
 					unitPrice = Double.parseDouble(datos.get(i)[0].split(",")[5]);
@@ -70,8 +64,6 @@ public class ReadCSV {
 				
 				SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy HH:mm"); 
 				invoiceDate = formato.parse(datos.get(i)[0].split(",")[4]);
-				System.out.println(invoiceDate);
-
 				
 				invoiceNO =datos.get(i)[0].split(",")[0];
 				stockCode = datos.get(i)[0].split(",")[1];
@@ -79,8 +71,7 @@ public class ReadCSV {
 				country = datos.get(i)[0].split(",")[7];
 
 				classData =new Data(invoiceNO, stockCode, description, quantity, invoiceDate, unitPrice, customerID, country);
-				data.add(classData);
-				
+				data.add(classData);	
 
 			}
 		}
@@ -101,17 +92,14 @@ public class ReadCSV {
 		}
 	}
 
-
 	public ArrayList<Data> getData() {
 		return data;
 	}
-
 
 	public void setData(ArrayList<Data> data) {
 		this.data = data;
 	}
 	
-
 }
 
 
